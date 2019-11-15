@@ -64,5 +64,7 @@ A. express app 생성
       }
     }
 
+  5) app 실행
   
+    # npm start
   
