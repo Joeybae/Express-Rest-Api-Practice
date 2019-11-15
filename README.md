@@ -22,7 +22,7 @@
 
 참고 : http://webframeworks.kr/tutorials/nodejs/api-server-by-nodejs-02/
 
--1. express app 생성
+- 1. express app 생성
 
   1) package.json 생성
   
