@@ -22,13 +22,13 @@
 
 참고 : http://webframeworks.kr/tutorials/nodejs/api-server-by-nodejs-02/
 
-1. express app 생성
+A. express app 생성
 
-  a) package.json 생성
+  1) package.json 생성
   
     # npm init -y
   
-  b) app.js 생성
+  2) app.js 생성
   
     const express = require('express');
     const app = express();
