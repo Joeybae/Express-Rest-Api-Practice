@@ -2,9 +2,9 @@
 
 학습 목표
 
-1. express app (Hello wordl) 생성
+A. express app (Hello wordl) 생성
 
-2. rest-api 만들기
+B. rest-api 만들기
 
   1) GET /users
   
