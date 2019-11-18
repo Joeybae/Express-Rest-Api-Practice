@@ -69,3 +69,25 @@ A. express app 생성
     # npm start
   
 B. Rest-api
+
+  1) 변수 추가 - app.js
+  
+  let users = [
+    {
+      id: 1,
+      name: 'alice'
+    },
+    {
+      id: 2,
+      name: 'bek'
+    },
+    {
+      id: 3,
+      name: 'chris'
+    }
+  ]
+
+
+
+
+
