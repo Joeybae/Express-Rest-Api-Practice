@@ -87,7 +87,17 @@ B. Rest-api
     }
   ]
 
-
+  2) 라우팅 설정 - app.js
+  
+  app.get('/users', (req, res) => {
+    // 여기에 라우팅 로직을 작성하면 됩니다.
+  });
+  
+  3) 라우팅 로직 작성 - app.js
+  
+  app.get('/users', (req, res) => {
+    return res.json(users);
+  });
 
 
 
