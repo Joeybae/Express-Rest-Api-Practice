@@ -72,32 +72,35 @@ B. Rest-api
 
   1) 변수 추가 - app.js
   
-  let users = [
-    {
-      id: 1,
-      name: 'alice'
-    },
-    {
-      id: 2,
-      name: 'bek'
-    },
-    {
-      id: 3,
-      name: 'chris'
-    }
-  ]
+    let users = [
+      {
+        id: 1,
+        name: 'alice'
+      },
+      {
+        id: 2,
+        name: 'bek'
+      },
+      {
+        id: 3,
+        name: 'chris'
+      }
+    ]
 
   2) 라우팅 설정 - app.js
   
-  app.get('/users', (req, res) => {
-    // 여기에 라우팅 로직을 작성하면 됩니다.
-  });
+    app.get('/users', (req, res) => {
+      // 여기에 라우팅 로직을 작성하면 됩니다.
+    });
   
   3) 라우팅 로직 작성 - app.js
   
-  app.get('/users', (req, res) => {
-    return res.json(users);
-  });
+    app.get('/users', (req, res) => {
+      return res.json(users);
+    });
 
-
+  3) API 테스트 - Terminal 창
+  
+    # curl -X GET '127.0.0.1:3000/users' -v
+    [{"id":1,"name":"chris"},{"id":2,"name":"tim"},{"id":3,"name":"daniel"}]%
 
