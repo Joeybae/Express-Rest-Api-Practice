@@ -138,3 +138,23 @@ B. Rest-api
     # curl -X GET '127.0.0.1:3000/users/alice' -v
 
     결과 : {"error":"Incorrect id"}
+
+  9) 특정 id 삭제 로직 추가
+  
+    app.delete('/users/:id', (req, res) => {
+      const id = parseInt(req.params.id, 10);
+      if (!id) {
+        return res.status(400).json({error: 'Incorrect id'});
+      }
+
+      const userIdx = users.findIndex(user => user.id === id);
+      if (userIdx === -1) {
+        return res.status(404).json({error: 'Unknown user'});
+      }
+
+      users.splice(userIdx, 1);
+      res.status(204).send();
+    });
+
+
+
