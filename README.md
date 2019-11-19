@@ -102,5 +102,6 @@ B. Rest-api
   4) API 테스트 - Terminal 창
   
     # curl -X GET '127.0.0.1:3000/users' -v
-    [{"id":1,"name":"chris"},{"id":2,"name":"tim"},{"id":3,"name":"daniel"}]%
+    
+    결과 : [{"id":1,"name":"chris"},{"id":2,"name":"tim"},{"id":3,"name":"daniel"}]%
 
