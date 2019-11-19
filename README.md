@@ -176,8 +176,30 @@ B. Rest-api
     # app.use(bodyParser.json());
     # app.use(bodyParser.urlencoded({ extended: true }));
   
+  14) Post로 새로운 데이터 추가
   
+    //데이터 추가
+    app.post('/users', (req, res) => {
+      const name = req.body.name || '';
+      if (!name.length) {
+        return res.status(400).json({error: 'Incorrenct name'});
+      }
+
+      const id = users.reduce((maxId, user) => {
+        return user.id > maxId ? user.id : maxId
+      }, 0) +1;
+
+      const newUser = {
+        id: id,
+        name: name,
+      };
+
+      users.push(newUser);
+      return res.status(201).json(newUser);
+    });
   
+  15) 데이터 추가 API 통신 
   
-  
-  
+    # curl -X POST '127.0.0.1:3000/users' -d "name=daniel" -v
+
+    결과 : {"id":4,"name":"daniel"}
