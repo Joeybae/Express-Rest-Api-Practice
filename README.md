@@ -121,5 +121,9 @@ B. Rest-api
       return res.json(user);
     });
 
-
+  6) 결과 확인 - Terminal 창
+  
+    # curl -X GET '127.0.0.1:3000/users/1' -v
+    
+    결과 : {"id":1,"name":"alice"}
 
