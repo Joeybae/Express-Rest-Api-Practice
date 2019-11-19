@@ -156,5 +156,13 @@ B. Rest-api
       res.status(204).send();
     });
 
+  10) 특정 id 삭제
+  
+    # curl -X DELETE '127.0.0.1:3000/users/1' -v
+    
+  11) 결과 확인
+  
+    # curl -X GET '127.0.0.1:3000/users/1' -v
 
+    결과 : {"error":"Unknown user"}
 
