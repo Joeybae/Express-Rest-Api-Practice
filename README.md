@@ -127,5 +127,9 @@ B. Rest-api
     
     결과 : {"id":1,"name":"alice"}
 
+  7) Error(404) 확인
+  
+    # curl -X GET '127.0.0.1:3000/users/4' -v
 
+    결과 : {"error":"Unknown user"}
 
