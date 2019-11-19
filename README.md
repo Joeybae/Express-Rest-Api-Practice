@@ -127,9 +127,14 @@ B. Rest-api
     
     결과 : {"id":1,"name":"alice"}
 
-  7) Error(404) 확인
+  7) id 입력 Error(404) 확인
   
     # curl -X GET '127.0.0.1:3000/users/4' -v
 
     결과 : {"error":"Unknown user"}
 
+  8) name 입력 Error(404) 확인
+  
+    # curl -X GET '127.0.0.1:3000/users/alice' -v
+
+    결과 : {"error":"Incorrect id"}
