@@ -166,3 +166,18 @@ B. Rest-api
 
     결과 : {"error":"Unknown user"}
 
+  12) body-parser module 설치
+  
+    # npm i body-parser --save
+  
+  13) body-parser module 실행 - app.js 아래 내용 추가
+  
+    # const bodyParser = require('body-parser');
+    # app.use(bodyParser.json());
+    # app.use(bodyParser.urlencoded({ extended: true }));
+  
+  
+  
+  
+  
+  
