@@ -2,7 +2,7 @@
 
 학습 목표
 
-A. express app (Hello wordl) 생성
+A. express app (Hello world) 생성
 
 B. rest-api 만들기
 
