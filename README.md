@@ -203,3 +203,106 @@ B. Rest-api
     # curl -X POST '127.0.0.1:3000/users' -d "name=daniel" -v
 
     결과 : {"id":4,"name":"daniel"}
+
+  16) User Routing Module 만들기
+  
+    - users 폴더 생성
+    
+    - users/index.js 파일 생성
+    
+    - index.js에 아래의 내용 추가
+    
+      const express = require('express');
+      const router = express.Router();
+
+      // 저장된 데이터
+      let users = [
+        {
+          id: 1,
+          name: 'alice'
+        },
+        {
+          id: 2,
+          name: 'bek'
+        },
+        {
+          id: 3,
+          name: 'chris'
+        }
+      ]
+
+      //전체 데이터 조회
+      router.get('/', (req, res) => {
+        return res.json(users);
+      });
+
+      // id로 조회
+      router.get('/:id', (req, res) => {
+        const id = parseInt(req.params.id, 10);
+        if (!id) {
+          return res.status(400).json({error: 'Incorrect id'});
+        }
+
+        let user = users.filter(user => user.id === id)[0]
+        if (!user) {
+          return res.status(404).json({error: 'Unknown user'});
+        }
+
+        return res.json(user);
+      });
+
+      //데이터 삭제
+      router.delete('/:id', (req, res) => {
+        const id = parseInt(req.params.id, 10);
+        if (!id) {
+          return res.status(400).json({error: 'Incorrect id'});
+        }
+
+        const userIdx = users.findIndex(user => user.id === id);
+        if (userIdx === -1) {
+          return res.status(404).json({error: 'Unknown user'});
+        }
+
+        users.splice(userIdx, 1);
+        res.status(204).send();
+      });
+
+      //데이터 추가
+      router.post('/', (req, res) => {
+        const name = req.body.name || '';
+        if (!name.length) {
+          return res.status(400).json({error: 'Incorrenct name'});
+        }
+
+        const id = users.reduce((maxId, user) => {
+          return user.id > maxId ? user.id : maxId
+        }, 0) +1;
+
+        const newUser = {
+          id: id,
+          name: name,
+        };
+
+        users.push(newUser);
+        return res.status(201).json(newUser); 
+      });
+
+      module.exports = router;
+    
+    - app.js 아래와 같이 내용 수정
+    
+      const express = require('express');
+      const bodyParser = require('body-parser');
+      const app = express();
+
+      app.use(bodyParser.json());
+      app.use(bodyParser.urlencoded({ extended: true }));
+      app.use('/users', require('./users'));
+
+      app.get('/', (req, res) => {
+        res.send('Hello World!\n');
+       });
+
+      app.listen(3000, () => {
+        console.log('Example app listening on port 3000!');
+      });
